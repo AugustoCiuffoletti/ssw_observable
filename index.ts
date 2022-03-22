@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs';
+import { Observable, Subscriber } from 'rxjs';
  
-const observable: Observable<string> = new Observable(subscriber => {
+const observable: Observable<string> = new Observable( (subscriber: Subscriber<string> ) => {
   subscriber.next(1);
   subscriber.next(2);
   subscriber.next(3);
