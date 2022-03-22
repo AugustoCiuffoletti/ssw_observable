@@ -1,6 +1,6 @@
 import { Observable, Subscriber } from 'rxjs';
  
-const observable: Observable<string> = new Observable( (subscriber: Subscriber<string> ) => {
+const observable: Observable<number> = new Observable( (subscriber: Subscriber<number> ) => {
   subscriber.next(1);
   subscriber.next(2);
   subscriber.next(3);
@@ -12,8 +12,8 @@ const observable: Observable<string> = new Observable( (subscriber: Subscriber<s
  
 console.log('just before subscribe');
 observable.subscribe({
-  next(x) { console.log('got value ' + x); },
-  error(err) { console.error('something wrong occurred: ' + err); },
-  complete() { console.log('done'); }
+  next: x => console.log('got value ' + x),
+  error: err => console.error('something wrong occurred: ' + err),
+  complete: () => console.log('done')
 });
 console.log('just after subscribe');
